@@ -1,0 +1,29 @@
+.informationBox{
+	 background: #e6ffcc;
+	      width: 22%;
+	      height: 100%;
+	      float: left;
+	      border-left: 1px solid black;
+		height: 100%;
+}
+.titleBox{
+ width: 88%;
+ float: left;
+}
+
+.DeleteBox{
+	margin-left: 89%;
+	margin-right: 5%;
+}
+
+.taskBox{
+
+	 margin-left:25% ;
+	 
+}
+.error{
+
+	 color:#D00000  ;
+	 font-style: italic;
+	 
+}

@@ -1,0 +1,22 @@
+ <div ng-include="'components/navbar/navbar.html'"></div>
+  <h1>New Task</h1><br/>
+<div name="form">
+  <form name="myForm"  ng-submit="updateTask()" ng-controller="UpdateTasksCtrl" novalidate>
+  <p>Name</p>
+  <input name="name" type="text"  ng-init="task.name=selectedTask.name" ng-model="task.name" required/><br/><br/>
+  <p>Description</p>
+  <input name="description" type="text"  ng-init="task.description=selectedTask.description" ng-model="task.description" required/><br/><br/>
+  <p>Info</p>
+  <input name="info" type="text" ng-init="task.info=selectedTask.info" ng-model="task.info"  required/><br/><br/>
+  <p>To start on</p>
+  <input ng-hide="focusStart" ng-click="focusStart=true" type="text" ng-init="task.startDatePrevision=selectedTask.startDatePrevision" ng-model="task.startDatePrevision"   >
+  <input ng-show="focusStart" name="startDate" type="date" ng-init="task.startDatePrevision=selectedTask.startDatePrevision" ng-model="task.startDatePrevision"><br/><br/>
+  <p>To finish on</p>
+  <input ng-hide="focusfinish" ng-click="focusfinish=true" type="text" ng-init="task.endDatePrevision=selectedTask.endDatePrevision" ng-model="task.endDatePrevision"  >
+  <input ng-show="focusfinish" type="date" ng-init="task.endDatePrevision=selectedTask.endDatePrevision" ng-model="task.endDatePrevision"  ><br/><br/>
+  <button type="submit" class="btn btn-primary" >Save</button>
+  <button  ng-click="Cancel()" class="btn btn-danger" >Cancel</button>
+
+   </form>
+</div>
+  

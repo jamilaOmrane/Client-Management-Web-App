@@ -1,0 +1,44 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div ng-controller="TasksCtrl">
+
+<div class="titleBox">
+<h1>{{selectedProject.title}}</h1>
+<h3>{{selectedProject.description}}</h3>
+</div>
+<div class="DeleteBox" >
+	<button class="btn btn-danger" ng-click="deleteProject()" >Delete Project</button>
+</div>	
+	
+
+<hr width="100%">
+<div class= "informationBox" align="left" >
+	<h4>Status : </h4>
+	<p>{{selectedProject.status}}</p>
+	<h4>Deadline : </h4> 
+	<p>{{selectedProject.deadline}}</p>
+	<h4>Client : </h4>
+	<p>{{clientFullname}}</p>
+	<div align="center">
+	<button  class="btn btn-success" ng-click="goToUpdateProject()">Edit Project</button>
+	</div>
+</div>
+<div class="taskBox">
+	<h2>Tasks</h2>
+	<table class="table table-striped" >
+	 <tbody >
+	      <tr ng-click="showButtonToggle()" ng-repeat="task in projectTasks" >
+	        <td >{{task.name}}</td>
+	        <td>{{task.description}}</td>
+	        <td>{{task.info}}</td>
+	        <td>{{task.status}}</td>
+	        <td ng-show="showButton"><button class="btn btn-success" ng-click="editTask($index)">Edit</button> <button class="btn btn-danger" ng-click="removeTask($index)">Remove</button></td>
+	      </tr>   
+	  </tbody>
+	</table> 
+	<div align="center">
+		<button class="btn btn-primary" ng-click="goToTask()">New Task</button>
+	</div>
+	
+</div>
+
+</div>

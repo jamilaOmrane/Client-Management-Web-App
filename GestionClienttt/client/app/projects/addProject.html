@@ -1,0 +1,42 @@
+ <div ng-include="'components/navbar/navbar.html'"></div>
+  <h1>New Project</h1><br/>
+<div name="form">
+  <form name="myForm"  ng-submit="myForm.$valid && addNewProject()" ng-controller="ProjectsCtrl" novalidate>
+  <h4>Please select the client</h4>
+   <select name="theClient" ng-model="newProject.client" required>
+    <option ng-repeat="client in clients" value="{{client._id}}">{{client.firstName+" "+client.lastName}}
+    </option>
+  </select>
+  <button class="btn btn-success" onclick="location.href='/clients#addClient';">New Client</button><br/><br/>
+
+  <div ng-show="myForm.theClient.$untouched && myForm.$submitted">
+  <p >This field is required</p> <br/>
+  </div>
+  
+  
+  <p>Title</p>
+  <input name="title" type="text" ng-model="newProject.title" required/><br/><br/>
+  <div ng-show="(myForm.title.$untouched || myForm.title.$error.required) && myForm.$submitted">
+  <p >This field is required</p> <br/>
+  </div>
+
+  <p>Description</p>
+  <input name="description" type="text" ng-model="newProject.description" required/><br/><br/>
+  <div ng-show="(myForm.description.$untouched || myForm.description.$error.required) && myForm.$submitted">
+  <p >This field is required</p> <br/>
+  </div>
+
+  <p>Date</p>
+  <input name="date" type="date" ng-model="newProject.deadline" min="{{today}}" required><br/><br/>
+  <div ng-show="(myForm.date.$untouched || myForm.date.$error.required) && myForm.$submitted">
+  <p >This field is required</p> <br/>
+  </div>
+  <div ng-show="myForm.date.$error.min && myForm.$submitted">
+  <p >This date should not be less than current date</p> <br/>
+  </div>
+
+  <button type="submit" class="btn btn-primary" >Add New</button>
+
+   </form>
+</div>
+  

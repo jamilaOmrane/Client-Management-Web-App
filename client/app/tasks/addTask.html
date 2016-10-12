@@ -1,0 +1,46 @@
+ <div ng-include="'components/navbar/navbar.html'"></div>
+  <h1>New Task</h1><br/>
+<div name="form">
+  <form name="myForm"  ng-submit="myForm.$valid && addNewTask()" ng-controller="TasksCtrl" novalidate>
+  <p>Name</p>
+  <input name="name" type="text" ng-model="newTask.name" required/><br/><br/>
+  <div ng-show="(myForm.name.$untouched || myForm.name.$error.required) && myForm.$submitted">
+  <p >This field is required</p> <br/>
+  </div>
+
+  <p>Description</p>
+  <input name="description" type="text" ng-model="newTask.description" required/><br/><br/>
+  <div ng-show="(myForm.description.$untouched || myForm.description.$error.required) && myForm.$submitted">
+  <p class="error">This field is required</p> <br/>
+  </div>
+
+  <p>Info</p>
+  <input name="info" type="text" ng-model="newTask.info" required/><br/><br/>
+  <div ng-show="(myForm.info.$untouched || myForm.info.$error.required) && myForm.$submitted">
+  <p class="error"> This field is required</p> <br/>
+  </div>
+
+  <p>To start on</p>
+  <input name="startDate" type="date" ng-model="newTask.startDatePrevision" min="{{today}}" required ><br/><br/>
+  <div ng-show="(myForm.startDate.$untouched || myForm.startDate.$error.required) && myForm.$submitted">
+  <p class="error">This field is required</p> <br/>
+  </div>
+  <div ng-show="myForm.startDate.$error.min && myForm.$submitted">
+  <p class="error">This date should not be less than current date</p> <br/>
+  </div>
+
+  <p>To finish on</p>
+  <input name="finishDate" type="date" ng-model="newTask.endDatePrevision" required><br/><br/>
+  <div ng-show="(myForm.finishDate.$untouched || myForm.startDatefinishDate.$error.required) && myForm.$submitted">
+  <p class="error" >This field is required</p> <br/>
+  </div>
+  <!--
+  <div ng-show="!finishDateValidity && myForm.$submitted">
+  <p class="error">This date should not be less than start date</p> <br/>
+  </div>
+-->
+  <button type="submit" class="btn btn-primary" >Add</button>
+
+   </form>
+</div>
+  
